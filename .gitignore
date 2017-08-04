@@ -58,3 +58,8 @@ typings/
 # dotenv environment variables file
 .env
 
+
+# instance/config/security/
+*.key
+*.crt
+
