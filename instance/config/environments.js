@@ -20,7 +20,13 @@ module.exports = {
       enableJWT:      false,
       enableVhost:    true,
       enableCors:     true,
-      jwtSecret:      'fengjie'
+      jwtSecret:      'fengjie',
+      httpsOpt: {
+        turnOn:       true,
+        port:         8081,
+        privateKey:   libPath.join(__dirname, 'security/certs/ssl/server.key'),
+        certificate:  libPath.join(__dirname, 'security/certs/ssl/pub.crt')
+      }
     }),
     router: [
       {

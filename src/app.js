@@ -19,6 +19,7 @@ const koaServe        = require('koa-static');
 const koaBodyParser   = require('koa-bodyparser');
 const koaQueryString  = require('koa-qs');
 const koaCors         = require('koa-cors');
+const https           = require('https');
 
 const koaMidNotFoundHandler   = require('./middleware/NotFoundHandler');
 const koaMidRequestIdHandler  = require('./middleware/RequestIdHandler');
@@ -70,7 +71,8 @@ class App {
         enableRender: joi.boolean().optional(),
         jwtSecret:    joi.string().optional(),
         jwtPaths:     joi.array().optional(),
-        compressOpt:  joi.object().optional()
+        compressOpt:  joi.object().optional(),
+        httpsOpt:     joi.object().optional()
       }).required()
     });
 
@@ -202,13 +204,23 @@ class App {
       debug('[NakedSurf] Initialization not done yet!');
       return;
     }
-
     if (_conf.app.hasOwnProperty('host')) {
-      _app.listen(_conf.app.port, _conf.app.host);
-      debug(`[NakedSurf] App listening on: ${_conf.app.host}:${_conf.app.port}`);
+        if(_conf.app.httpsOpt.turnOn)
+        {
+            https.createServer({
+                key: libFsp.readFileSync(_conf.app.httpsOpt.privateKey),
+                cert: libFsp.readFileSync(_conf.app.httpsOpt.certificate)
+            }, _app.callback()).listen(_conf.app.httpsOpt.port, function(){
+                debug(`[NakedSurf] App listening on SSL: https://127.0.0.1:${_conf.app.httpsOpt.port}`);
+            });
+        }
+        else
+        {
+            _app.listen(_conf.app.port, _conf.app.host);
+            debug(`[NakedSurf] App listening on: ${_conf.app.host}:${_conf.app.port}`);
+        }
     } else {
-      _app.listen(_conf.app.port);
-      debug(`[NakedSurf] App listening on: ${_conf.app.port}`);
+            debug(`[NakedSurf] App listening on: ${_conf.app.port}`);
     }
   }
 

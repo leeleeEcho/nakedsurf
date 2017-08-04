@@ -28,6 +28,12 @@ const config = {
     compressOpt: {
       threshold:    '100kb'
     },
+    httpsOpt:    {
+      turnOn:       false,
+      port:         0,
+      privateKey:   undefined,
+      certificate:  undefined
+    },
     errorHandle: function *(next) {
       try {
         yield next;
