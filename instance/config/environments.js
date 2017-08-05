@@ -17,7 +17,7 @@ module.exports = {
       hostname:       `http://${apiConfig.development.domain}/`,
       host:           apiConfig.development.host,
       port:           apiConfig.development.port,
-      enableJWT:      false,
+      enableJWT:      true,
       enableVhost:    true,
       enableCors:     true,
       jwtSecret:      'fengjie',
@@ -45,7 +45,15 @@ module.exports = {
           host:       "127.0.0.1",
           port:       27017,
           database:   "db-om-shinezone"
-        }
+        },
+        mysql: {
+           adapter:    "mysql",
+           host:       "127.0.0.1",
+           port:       3306,
+           user:       'root',
+           password :  'root',
+           database:   "nakedsurf"
+        },
       }
     })
     // config: {

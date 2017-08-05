@@ -49,7 +49,8 @@ const config = {
     path:           libPath.join(__dirname, '..', 'app', 'orm'),
     adapters: {
       memory:       require('sails-memory'),
-      mongodb:      require('sails-mongo')
+      mongodb:      require('sails-mongo'),
+      mysql:        require('sails-mysql')
     },
     connections: {
       default: {

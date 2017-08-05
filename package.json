@@ -61,6 +61,7 @@
     "ioredis": "^1.15.1",
     "ip": "^1.1.5",
     "joi": "^8.0.4",
+    "js-md5": "^0.6.0",
     "jsonwebtoken": "^7.1.9",
     "koa": "^1.1.2",
     "koa-better-vhost": "0.0.1",
