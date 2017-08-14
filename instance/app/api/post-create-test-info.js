@@ -44,23 +44,7 @@ function *execute(next) {
     let _this = this;
     this.body = yield new Promise(function(resolve) {resolve(true)})
         .then(function () {
-            return createViaModel(sessionInfoModel, { sessionid: md5('leelee.echo')}).then((res) => {
-                _this.info = res;
-            }, (err) => {
-                _this.err_code = err.status;
-                _this.err = err;
-            } );
-        })
-        .then(function () {
-            return createViaModel(sessionInfoModel, { sessionid: md5('leelee.echo')}).then((res) => {
-                _this.info = res;
-            }, (err) => {
-                _this.err_code = err.status;
-                _this.err = err;
-            } );
-        })
-        .then(function () {
-            return createViaModel(sessionInfoModel, { sessionid: md5('leelee.echo')}).then((res) => {
+            return createViaModel(sessionInfoModel, { sessionid: md5('leelee.echo' + Date())}).then((res) => {
                 _this.info = res;
             }, (err) => {
                 _this.err_code = err.status;

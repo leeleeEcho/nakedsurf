@@ -51,6 +51,7 @@
   },
   "homepage": "https://github.com/leeleeEcho/nakedsurf#readme",
   "dependencies": {
+    "amqplib": "^0.5.1",
     "babel-preset-es2015": "^6.24.1",
     "bluebird": "^3.5.0",
     "co": "^4.6.0",
