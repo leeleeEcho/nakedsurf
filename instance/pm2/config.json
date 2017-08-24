@@ -1,0 +1,11 @@
+{
+  "apps": [{
+    "name": "nakedSurfInstance",
+    "script": "main.js",
+    "exec_mode": "cluster_mode",
+    "instances": 2,
+    "error_file": "../logs/pm2/nakedsurf_error.log",
+    "out_file": "../logs/pm2/nakedsurf_out.log",
+    "log_date_format": "YYYY-MM-DD HH:mm Z"
+  }]
+}
