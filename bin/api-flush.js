@@ -110,7 +110,7 @@ class ApiGenerator {
       this.throw(401, 'No Authorization header found!');
     }
 
-    secret = require('sagitta').Instance.app.conf.app.jwtSecret || false;
+    secret = require('nakedsurf').Instance.app.conf.app.jwtSecret || false;
     if (!secret) {
       this.throw(500, 'Invalid secret!');
     }
@@ -173,8 +173,8 @@ class ApiGenerator {
 
 const TemplateStr = `'use strict';
 
-const joi         = require('sagitta').Utility.joi;
-const joiValidate = require('sagitta').Utility.joiValidate;
+const joi         = require('nakedsurf').Utility.joi;
+const joiValidate = require('nakedsurf').Utility.joiValidate;
 
 class {{{camelCaseName}}} {
 
@@ -218,8 +218,8 @@ module.exports = api;`;
 
 const TemplatePageStr = `'use strict';
 
-const joi         = require('sagitta').Utility.joi;
-const joiValidate = require('sagitta').Utility.joiValidate;
+const joi         = require('nakedsurf').Utility.joi;
+const joiValidate = require('nakedsurf').Utility.joiValidate;
 
 class {{{camelCaseName}}} {
 

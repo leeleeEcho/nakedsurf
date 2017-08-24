@@ -47,7 +47,7 @@ class ServerApiGenerator {
         results.forEach((result) => {
           this.output += result;
         });
-        libFsp.writeFile(libPath.join(outputPath, 'sagitta-server.js'), this.output + TemplateTail);
+        libFsp.writeFile(libPath.join(outputPath, 'nakedsurf-server.js'), this.output + TemplateTail);
       }).then(() => {
         debug('[ServerApiGenerator] All done ...');
       }).catch((err) => {
@@ -171,7 +171,7 @@ module.exports = {{{schema}}};
 `;
 
 const TemplateHead = `"use strict";
-class SagittaServer {
+class nakedsurfServer {
 
   callFunc(options) {
     const callClass = options.callClass;
@@ -266,7 +266,7 @@ const TemplatePatch   = `
 `;
 
 const TemplateTail = `}
-export default new SagittaServer();`;
+export default new NakedSurfServer();`;
 
 const generator = new ServerApiGenerator();
 

@@ -48,15 +48,15 @@ class OrmValidationGenerator {
       params['data'][ormSpec.name] = ormSpec.schema;
     }
 
-    libFsp.writeFile(libPath.join(outputPath, 'sagitta-client-orm.js'), this.template(params));
+    libFsp.writeFile(libPath.join(outputPath, 'nakedsurf-client-orm.js'), this.template(params));
   }
 
 }
 
 const TemplateStr = `"use strict";
 
-var joiValidate     = require('sagitta').Utility.joiValidate;
-var waterlineToJoi  = require('sagitta').Utility.waterlineToJoi;
+var joiValidate     = require('nakedsurf').Utility.joiValidate;
+var waterlineToJoi  = require('nakedsurf').Utility.waterlineToJoi;
 
 var Validator = function() {
   this.schema = {

@@ -53,7 +53,7 @@ class ClientApiGenerator {
         results.forEach((result) => {
           this.output += result;
         });
-        libFsp.writeFile(libPath.join(outputPath, 'sagitta-client.js'), this.output + TemplateTail);
+        libFsp.writeFile(libPath.join(outputPath, 'nakedsurf-client.js'), this.output + TemplateTail);
       }).then(() => {
         debug('[ClientApiGenerator] All done ...');
       }).catch((err) => {
@@ -177,7 +177,7 @@ const TemplateHead = `"use strict";
 import Configs from "../../common/Configs";
 let apiHost = Configs.DEFAULT.SERVER.API_HOST;
 
-class SagittaClient {
+class nakedsurfClient {
 
   ajax (options) {
     options = options || {};
@@ -429,7 +429,7 @@ const TemplatePatch   = `
 `;
 
 const TemplateTail = `}
-export default new SagittaClient();`;
+export default new NakedSurfClient();`;
 
 const generator = new ClientApiGenerator();
 
