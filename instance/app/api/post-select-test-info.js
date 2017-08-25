@@ -3,11 +3,11 @@
 const joi         = require('nakedsurf').Utility.joi;
 const joiValidate = require('nakedsurf').Utility.joiValidate;
 
-class CreateTestInfo {
+class SelectTestInfo {
 
   constructor() {
     this.method     = 'post';
-    this.uri        = '/createTestInfo';
+    this.uri        = '/queryTestInfo';
     this.type       = 'application/json; charset=utf-8';
     this.enableJWT  = false; 
     this.schema     = joi.object().keys({
@@ -38,9 +38,9 @@ function *validate(next) {
 }
 
 function *execute(next) {
-  this.body = yield require('../services/tagInfo/service.js').CreateTestInfo(this.request.body);
+  this.body = yield require('../services/tagInfo/service.js').SelectTestInfo(this.request.body);
 }
 
-const api = new CreateTestInfo();
+const api = new SelectTestInfo();
 
 module.exports = api;

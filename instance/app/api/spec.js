@@ -14,15 +14,26 @@ const ApiSpec = [ {
     })`
 },
     {
-        name:       'create-test-info',
+        name: 'create-test-info',
+        method: 'post',
+        uri: '/createTestInfo',
+        enableJWT: false,
+        service: 'tagInfo',
+        schema: `joi.object().keys({
+        name:  joi.string().required()
+    })`
+    },
+    {
+        name:       'select-test-info',
         method:     'post',
-        uri:        '/createTestInfo',
+        uri:        '/queryTestInfo',
         enableJWT:  false,
         service:    'tagInfo',
         schema: `joi.object().keys({
         name:  joi.string().required()
     })`
     }
+
 ]
 
 module.exports = ApiSpec;
