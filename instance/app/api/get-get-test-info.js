@@ -1,7 +1,7 @@
 'use strict';
 
-const joi         = require('nakedsurf').Utility.joi;
-const joiValidate = require('nakedsurf').Utility.joiValidate;
+const joi         = require('../../../index').Utility.joi;
+const joiValidate = require('../../../index').Utility.joiValidate;
 
 class GetTestInfo {
 
@@ -39,7 +39,7 @@ function *validate(next) {
 }
 
 function *execute(next) {
-  this.body = yield require('../services/tagInfo/service.js').GetTestInfo(this.params);
+  this.body = {username: 1234};
 }
 
 const api = new GetTestInfo();

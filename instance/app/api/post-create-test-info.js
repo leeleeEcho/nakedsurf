@@ -1,7 +1,7 @@
 'use strict';
 
-const joi         = require('nakedsurf').Utility.joi;
-const joiValidate = require('nakedsurf').Utility.joiValidate;
+const joi         = require('../../../index').Utility.joi;
+const joiValidate = require('../../../index').Utility.joiValidate;
 
 class CreateTestInfo {
 
