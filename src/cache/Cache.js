@@ -12,7 +12,7 @@ class Cache {
     this.instance = null;
 
     this.schema = joi.object().keys({
-      host:     joi.string().ip().optional().default('127.0.0.1'),
+      host:     joi.string().optional().default('127.0.0.1'),
       port:     joi.number().integer().optional().default(6379),
       family:   joi.number().integer().optional().valid([4, 6]).default(4),
       password: joi.string().optional(),
