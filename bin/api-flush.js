@@ -204,7 +204,7 @@ function *validate(next) {
     yield joiValidate(aggregatedParams, api.schema, { allowUnknown: true });
     yield next;
   } catch (err) {
-    this.body = err.toString();
+    this.body = { error: err.toString() , status: 500};
   }
 }
 
